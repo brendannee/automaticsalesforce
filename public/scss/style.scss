@@ -1,0 +1,26 @@
+// Set fontawesome font path
+$fa-font-path: "../dest/fonts";
+@import "../../node_modules/font-awesome/scss/font-awesome";
+
+// Set bootstrap font defaults
+$font-family-sans-serif: 'avenir next', avenir, helvetica, arial, sans-serif;
+$icon-font-path: "../dest/fonts/";
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+@import "mixins";
+@import "variables";
+@import "base";
+@import "layout";
+@import "button";
+@import "form";
+@import "popover";
+@import "modal";
+@import "spinner";
+
+@import "header";
+@import "signin";
+@import "loading";
+@import "trip";
+@import "single_trip";
+@import "controls";
+@import "filters";

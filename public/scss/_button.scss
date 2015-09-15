@@ -1,0 +1,66 @@
+.btn[disabled],
+.btn.disabled {
+  background-color: $border;
+  box-shadow: 0 1px 0 0 $grey;
+  color: $grey;
+}
+
+.btn-blue {
+  background-color: $button-blue;
+  box-shadow: 0 1px 0 0 $blue;
+  color: $white;
+
+  &:hover,
+  &:active {
+    background-color: $blue;
+    color: $white;
+  }
+
+  &:focus {
+    color: $white;
+  }
+}
+
+.btn-green {
+  background-color: $green;
+  box-shadow: 0 1px 0 0 $dark-green;
+  color: $dark-green;
+
+  &:hover {
+    background-color: $dark-green;
+    color: $white;
+  }
+
+  &:active {
+    background-color: $dark-green;
+    color: $white;
+  }
+
+  &:focus {
+    color: $white;
+  }
+}
+
+.btn-grey {
+  background-color: $border;
+  box-shadow: 0 1px 0 0 $grey;
+  color: $dark-grey;
+
+  &:hover,
+  &:active {
+    background-color: $grey;
+    color: $white;
+  }
+
+  &:focus {
+    color: $white;
+  }
+}
+
+.btn-expense {
+  @extend .btn-blue;
+
+  &.expensed {
+    @extend .btn-green;
+  }
+}

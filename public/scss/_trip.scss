@@ -1,0 +1,324 @@
+.trips {
+  .table-header {
+    border-bottom: 1px solid $lightish-grey;
+    border-top: 1px solid $lightish-grey;
+    display: none;
+
+    .column-header {
+      border-right: 1px solid $lightish-grey;
+      display: inline-block;
+      padding: 5px 15px;
+
+      &.start-header {
+        background: url("../images/tripview_a.png") 0 4px no-repeat;
+        margin-left: 30px;
+        padding-left: 20px;
+        width: 198px;
+      }
+
+      &.end-header {
+        background: url("../images/tripview_b.png") 15px 4px no-repeat;
+        padding-left: 35px;
+        width: 213px;
+      }
+
+      &.distance-header,
+      &.mpg-header,
+      &.duration-header {
+        padding: 5px;
+        text-align: center;
+        width: 66px;
+      }
+    }
+  }
+}
+
+.trip-date {
+  border-top: 1px solid $border;
+  padding: 20px 20px 5px;
+}
+
+.trip {
+  background-color: $white;
+  border-top: 1px solid $border;
+  cursor: pointer;
+  display: block;
+  padding: 15px 20px;
+  position: relative;
+
+  .ball {
+    background-color: $border;
+    border-radius: 6px;
+    height: 12px;
+    left: -27px;
+    position: absolute;
+    top: 34px;
+    width: 12px;
+  }
+
+  .trip-line {
+    background-color: $blue;
+    box-sizing: border-box;
+    font-size: 10px;
+    height: 88px;
+    left: 91px;
+    position: absolute;
+    top: 14px;
+    width: 2px;
+
+
+    .top-ball,
+    .bottom-ball {
+      background-color: $blue;
+      border-radius: 8px;
+      color: $white;
+      height: 15px;
+      line-height: 15px;
+      margin-left: -7px;
+      padding: 1px;
+      text-align: center;
+      width: 15px;
+    }
+
+    .bottom-ball {
+      bottom: 0;
+      position: absolute;
+    }
+  }
+
+  .end {
+    padding-top: 52px;
+  }
+
+  .start-time,
+  .end-time {
+    float: left;
+    width: 87px;
+  }
+
+  .start-address,
+  .end-address {
+    color: $blue;
+    display: none;
+  }
+
+  .start-street,
+  .end-street {
+    color: $blue;
+    min-height: 19px;
+    white-space: nowrap;
+  }
+
+  .stats {
+    left: 106px;
+    position: absolute;
+    top: 40px;
+    width: 61%;
+
+    .stat {
+      color: $dark-grey;
+      display: inline-block;
+      font-size: 18px;
+      text-align: center;
+      vertical-align: top;
+      width: 33%;
+
+      &::after {
+        color: $grey;
+        display: block;
+        font-size: 14px;
+        margin-top: -5px;
+      }
+    }
+
+    .distance::after {
+      content: "MILES";
+    }
+
+    .mpg::after {
+      content: "MPG";
+    }
+
+    .duration {
+      &.min::after {
+        content: "MIN";
+      }
+
+      &.hrs::after {
+        content: "HRS";
+      }
+    }
+  }
+
+  .btn-expense {
+    display: block;
+    margin: 12px 0 0 3px;
+    vertical-align: -11px;
+    width: 100%;
+  }
+}
+
+.no-trips {
+  font-size: 20px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+@media (min-width: $screen-sm) {
+  .trips {
+    .table-header {
+      border-left: 2px solid $border;
+      border-right: 1px solid $lightish-grey;
+      display: block;
+      margin-left: 7px;
+
+      .column-header {
+        &.start-header {
+          width: 193px;
+        }
+
+        &.end-header {
+          width: 208px;
+        }
+
+        &.distance-header,
+        &.mpg-header,
+        &.duration-header {
+          width: 66px;
+        }
+      }
+    }
+
+    .table-body {
+      border-left: 2px solid $border;
+      margin-left: 7px;
+      padding: 0 0 20px 20px;
+    }
+  }
+
+  .trip-date {
+    border-top: 0;
+    padding: 20px 0 5px;
+  }
+
+  .trip {
+    border-radius: 5px;
+    border-top: 0;
+    box-shadow: 0 1px 0 0 $border;
+    margin-top: 1px;
+
+    .start {
+      display: inline-block;
+      overflow: hidden;
+      padding: 0 10px 0 0;
+      vertical-align: top;
+      width: 195px;
+    }
+
+
+    .end {
+      display: inline-block;
+      overflow: hidden;
+      padding: 0;
+      vertical-align: top;
+      width: 195px;
+    }
+
+    .trip-line {
+      display: none;
+    }
+
+    .start-time,
+    .end-time {
+      float: none;
+      width: auto;
+    }
+
+    .start-address,
+    .end-address {
+      display: block;
+    }
+
+    .start-street,
+    .end-street {
+      display: none;
+    }
+
+    .stats {
+      display: inline-block;
+      left: 0;
+      position: relative;
+      top: 0;
+      width: auto;
+
+      .stat {
+        width: 66px;
+
+        &::after {
+          margin-top: 0;
+        }
+      }
+    }
+
+    .btn-expense {
+      display: inline-block;
+      width: 87px;
+    }
+  }
+}
+
+@media (min-width: $screen-md) {
+  .trips {
+    .table-header .column-header {
+      &.start-header {
+        width: 259px;
+      }
+
+      &.end-header {
+        width: 274px;
+      }
+
+      &.distance-header,
+      &.mpg-header,
+      &.duration-header {
+        padding: 5px 15px;
+        width: 86px;
+      }
+    }
+  }
+
+  .trip {
+    .start {
+      padding: 0 15px 0 0;
+      width: 261px;
+    }
+
+    .end {
+      width: 261px;
+    }
+
+    .stats {
+      .stat {
+        width: 86px;
+      }
+    }
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx) {
+  .trips {
+    .table-header {
+      .column-header {
+        &.start-header {
+          background-image: url("../images/tripview_a@2x.png");
+          background-size: 15px 21px;
+        }
+
+        &.end-header {
+          background-image: url("../images/tripview_b@2x.png");
+          background-size: 15px 21px;
+        }
+      }
+    }
+  }
+}

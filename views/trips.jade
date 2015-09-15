@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  #controls.controls
+  #trips.trips
+
+block scripts
+  script.
+    var mapboxAccessToken = "#{mapboxAccessToken}";
+  
+  script(src="/dest/index.js")

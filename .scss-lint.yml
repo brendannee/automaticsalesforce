@@ -1,0 +1,326 @@
+# @docs https://github.com/causes/scss-lint/blob/master/lib/scss_lint/linter/README.md
+
+linters:
+
+  # Use proper spacing around `!` in `!important` and `!default` declarations.
+  # property: value !important; // good
+  # property: value!important;  // bad
+  # property: value! important; // bad
+  BangFormat:
+    enabled: true
+    space_before_bang: true
+    space_after_bang: false
+
+  # Prefer border: 0 over border: none.
+  BorderZero:
+    enabled: true
+
+  # Prefer hexadecimal color codes over color keywords.
+  # color: #ff0000;    // good
+  # color: periwinkle; // bad
+  ColorKeyword:
+    enabled: true
+
+  # If enabled, enforces the use of color literals in variable declarations only.
+  # Conflicts with our color map, therefore disable.
+  ColorVariable:
+    enabled: false
+
+  # Prefer // comments over /* ... */.
+  Comment:
+    enabled: true
+
+  # Do not use Compass linters, to keep our dependence on Compass minimal.
+  Compass::*:
+    enabled: false
+
+  # Reports @debug statements (which you probably left behind accidentally).
+  DebugStatement:
+    enabled: true
+
+  # Prefer rule sets ordered as follows: @extend declarations,
+  # @include declarations without inner @content, properties, @include
+  # declarations with inner @content, then nested rule sets.
+  #
+  # .foo {
+  #   @extend %bar; // except don't actually use @extend for now
+  #   @include some-mixin-that-just-adds-rules;
+  #   prop: value;
+  #   @include some-mixin-that-returns-content;
+  #   .baz {
+  #     // other stuff
+  #   }
+  # }
+  #
+  # NOTE: you will need to manually disable this linter inline if your block
+  # contains nested media queries. Example usecase:
+  #
+  # // scss-lint:disable DeclarationOrder
+  # @include mq-breakpoint($my-breakpoint) {
+  # // scss-lint:enable DeclarationOrder
+  #
+  #   background-image: url("image@1x.png");
+  #
+  #   @include mq-resolution(2) {
+  #     background-image: url("image@2x.png");
+  #   }
+  # }
+  DeclarationOrder:
+    enabled: true
+
+  # Do not define the same property twice in a single rule set.
+  DuplicateProperty:
+    enabled: true
+
+  # Place @else statements on the same line as the preceding curly brace.
+  ElsePlacement:
+    enabled: true
+    style: same_line # or `new_line`
+
+  # Separate rule, function, and mixin declarations with empty lines.
+  EmptyLineBetweenBlocks:
+    enabled: true
+    ignore_single_line_blocks: false
+
+  # Avoid having empty rule sets.
+  EmptyRule:
+    enabled: true
+
+  # Prefer files to have a final newline.
+  FinalNewline:
+    enabled: true
+    present: true
+
+  # Prefer #333333 over #333.
+  HexLength:
+    enabled: true
+    style: long # or `short`
+
+  # Prefer #aaaaaa over #AAAAAA.
+  HexNotation:
+    enabled: true
+    style: lowercase # or `uppercase`
+
+  # Avoid using invalid hexadecimal colors.
+  HexValidation:
+    enabled: true
+
+  # Avoid using ID selectors.
+  IdSelector:
+    enabled: true
+
+  # While we prefer to not use !important, not worth refactoring now.
+  ImportantRule:
+    enabled: false
+
+  # Basenames of @import-ed SCSS partials must not begin with an underscore
+  # and must not include the filename extension.
+  #
+  # Given path/to/_partial.scss,
+  # @import "path/to/partial";      // good
+  # @import "path/to/_partial";     // bad
+  # @import "path/to/partial.scss"; // bad
+  ImportPath:
+    enabled: true
+    leading_underscore: false
+    filename_extension: false
+
+  # Prefer spaces over tabs. Use two spaces per indentation level.
+  Indentation:
+    enabled: true
+    character: space # or `tab`
+    width: 2
+    allow_non_nested_indentation: false
+
+  # Include leading zeros for numeric values with a decimal point.
+  LeadingZero:
+    enabled: true
+    style: include_zero # or `exclude_zero`
+
+  # Avoid defining the same selector twice in a single sheet. Linter
+  # disabled because our file structure generates many false positives.
+  MergeableSelector:
+    enabled: false
+    force_nesting: true
+
+  # Declare functions, mixins, and variables with all lowercase letters,
+  # separating words with hyphens. Okay to start global variables with `_`.
+  # Linter disabled because it false-positives when @extends is used on
+  # a class rather than a placeholder + scsslint ignores the disable flag.
+  NameFormat:
+    enabled: false
+    allow_leading_underscore: true
+    convention: hyphenated_lowercase # or `snake_case`, or `camel_case`,
+                                     # or `BEM`, or a regex `'pattern'`
+
+  # While the general best practice is to avoid nesting selectors too deeply,
+  # for now we prioritize maintainability over miniscule perf gains.
+  NestingDepth:
+    enabled: false
+    # max_depth: 3
+
+  # Always use placeholder selectors in @extend.
+  # Disabling because for now, we aren't using @extend.
+  PlaceholderInExtend:
+    enabled: false
+
+  # We don't currently enforce a maximum number of properties per rule set.
+  PropertyCount:
+    enabled: false
+
+  # Sort properties in alphabetical order.
+  PropertySortOrder:
+    enabled: true
+    ignore_unspecified: false
+    separate_groups: false
+
+  # Avoid using unknown CSS properties.
+  # Linter will ignore vendor-prefixed properties.
+  PropertySpelling:
+    enabled: true
+    extra_properties:
+      - user-input
+      - user-focus
+
+  # Avoid qualifying elements in selectors (also known as "tag-qualifying").
+  #
+  # .foo {}        // good
+  # element.foo {} // bad
+  QualifyingElement:
+    enabled: true
+    allow_element_with_attribute: false
+    allow_element_with_class: false
+    allow_element_with_id: false
+
+  # While the general best practice is to avoid nesting selectors too deeply,
+  # for now we prioritize maintainability over miniscule perf gains.
+  SelectorDepth:
+    enabled: false
+    # max_depth: 3
+
+  # Use hyphenated_BEM convention for naming selectors. You should not style
+  # IDs -- but if you do, they should be camelCase. But, don't.
+  # [include link to wiki doc here]
+  SelectorFormat:
+    enabled: true
+    convention: hyphenated_BEM # or `BEM`, or `hyphenated_lowercase`,
+                               # or `snake_case`, or `camel_case`,
+                               # or a regex `'pattern'`
+    id_convention: camel_case
+    # attribute_convention: nil
+    # class_convention: nil
+    # placeholder_convention: nil
+    # ignored_names: []
+    # ignored_types: [] # attribute, class, element, id, placeholder
+
+  # Prefer the shortest shorthand form possible for properties that support it.
+  #
+  # border: 1px 0;       // good
+  # border: 1px 0 1px 0; // bad
+  Shorthand:
+    enabled: true
+
+  # Properties within rule sets must each reside on their own line.
+  SingleLinePerProperty:
+    enabled: true
+    allow_single_line_rule_sets: false
+
+  # Split selectors onto separate lines after each comma.
+  #
+  # .foo, .bar {
+  #   // bad
+  # }
+
+  # .foo,
+  # .bar {
+  #   // good
+  # }
+  SingleLinePerSelector:
+    enabled: true
+
+  # Commas in lists must be followed by a space.
+  SpaceAfterComma:
+    enabled: true
+
+  # Properties must be formatted with a single space separating the colon
+  # from the property's value.
+  #
+  # prop: value;  // good
+  # prop:value;   // bad
+  # prop:  value; // bad
+  SpaceAfterPropertyColon:
+    enabled: true
+    style: one_space # or `no_space`, or `at_least_one_space`, or `aligned`
+
+  # Properties must be formatted with no space between the name and colon.
+  #
+  # prop: value;  // good
+  # prop : value; // bad
+  SpaceAfterPropertyName:
+    enabled: true
+
+  # Opening braces must be preceded by a single space.
+  #
+  # .foo {} // good
+  # .foo{}  // bad
+  # .foo
+  # {}      // bad
+  SpaceBeforeBrace:
+    enabled: true
+    allow_single_line_padding: false
+    style: space # or `new_line`
+
+  # Parentheses must not be padded with spaces.
+  #
+  # (foo, bar)   // good
+  # ( foo, bar ) // bad
+  SpaceBetweenParens:
+    enabled: true
+    spaces: 0
+
+  # String literals must be enclosed with double quotes.
+  StringQuotes:
+    enabled: true
+    style: double_quotes # or `single_quotes`
+
+  # Property values, @extend directives, @include directives, @import directives,
+  # and variable declarations must end with a semicolon.
+  TrailingSemicolon:
+    enabled: true
+
+  # Omit trailing zeros for numeric values with a decimal point.
+  TrailingZero:
+    enabled: true
+
+  # Omit unnecessary fractional portions of numeric values.
+  # 1 / 2   // good
+  # 1.0 / 2 // bad
+  UnnecessaryMantissa:
+    enabled: true
+
+  # Omit unnecessary parent selector references (&).
+  UnnecessaryParentReference:
+    enabled: true
+
+  # We run this linter on the uncompiled SCSS, so assets haven't been CDN'ed yet,
+  # so URLs to assets should be relative paths and should contain neither
+  # protocols nor domain names.
+  UrlFormat:
+    enabled: true
+
+  # URLs must be enclosed within quotes.
+  UrlQuotes:
+    enabled: true
+
+  # This linter is for using variables for specified property values instead of
+  # literal values - not sure when we would use this.
+  VariableForProperty:
+    enabled: false
+
+  # Avoid writing vendor prefixes; use Autoprefixer instead.
+  VendorPrefix:
+    enabled: true
+
+  # Omit length units on zero values.
+  ZeroUnit:
+    enabled: true

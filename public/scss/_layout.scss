@@ -1,0 +1,17 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 940px;
+  position: relative;
+}
+
+@media (min-width: $screen-sm) {
+  .wrapper.content {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: $screen-md) {
+  .wrapper.content {
+    max-width: 940px;
+  }
+}

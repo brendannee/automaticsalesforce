@@ -1,0 +1,189 @@
+.single-trip {
+  padding-bottom: 5px;
+
+  .trip-header {
+    border-bottom: 1px solid $border;
+    font-size: 12px;
+    overflow: hidden;
+    padding: 0 12px 20px;
+    width: 100%;
+
+    .start {
+      background: url("../images/tripview_a.png") left top 4px no-repeat;
+      float: left;
+      min-height: 25px;
+      padding-left: 25px;
+      text-align: left;
+      width: 50%;
+    }
+
+    .end {
+      background: url("../images/tripview_b.png") right top 4px no-repeat;
+      float: right;
+      min-height: 25px;
+      padding-right: 25px;
+      text-align: right;
+      width: 50%;
+    }
+
+    .location {
+      color: $blue;
+    }
+  }
+
+  .stats {
+    background: $white;
+    overflow: hidden;
+    padding: 10px;
+
+    .stat {
+      display: inline-block;
+      float: left;
+      overflow: hidden;
+      text-align: center;
+      width: 33%;
+
+      .value {
+        color: $dark-grey;
+        font-size: 16px;
+      }
+
+
+      .label {
+        color: $grey;
+        font-size: 10px;
+        font-weight: normal;
+        text-align: center;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .map {
+    height: 300px;
+    width: 100%;
+
+    .leaflet-control-attribution {
+      font-size: 10px;
+
+      a {
+        color: rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    // Map popup Styles
+    .leaflet-popup-tip {
+      border-top-color: $blue;
+    }
+
+    .leaflet-popup-content-wrapper {
+      @include box-shadow(0 0 2px 0 rgba(0, 0, 0, 0.15));
+
+      background: $white;
+      border: 0;
+      border-bottom: 2px solid $blue;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+    }
+
+    .leaflet-bottom {
+      z-index: 0;
+    }
+
+    .leaflet-control {
+      z-index: 0;
+    }
+
+    .no-map-info {
+      display: none;
+    }
+
+    &.no-map-available {
+      background-image: url("../images/map_noroute.png"), url("../images/map_world.png");
+      background-position: center 70px, 0 0;
+      background-repeat: no-repeat, no-repeat;
+      background-size: 58px auto, cover;
+
+      .no-map-info {
+        display: block;
+        margin: 0 auto;
+        max-width: 360px;
+        padding: 120px 30px 0;
+        text-align: center;
+      }
+    }
+  }
+
+  .map-menu {
+    @include box-shadow(0 -3px 2px -2px  rgba(0, 0, 0, 0.07));
+
+    background: $white;
+    border-bottom: 0;
+    border-top: 1px solid $border;
+    height: 39px;
+    overflow: hidden;
+    position: relative;
+
+    .zoom-control {
+      @include noSelection;
+
+      float: left;
+      padding: 10px 0;
+
+      .zoom-in,
+      .zoom-out {
+        cursor: pointer;
+        float: left;
+        font-size: 19px;
+        font-weight: bold;
+        line-height: 24px;
+        text-align: center;
+        width: 29px;
+      }
+
+      .zoom-out {
+        border-left: 1px solid $light-grey;
+      }
+    }
+
+    .map-menu-right {
+      float: right;
+      margin-right: 15px;
+      margin-top: 5px;
+
+      .btn-expense {
+        display: inline-block;
+        width: 113px;
+      }
+    }
+  }
+}
+
+@media (min-width: 330px) {
+  // Small phones
+  .single-trip .map {
+    height: 350px;
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx) {
+  .single-trip {
+    .map.no-map-available {
+      background-image: url("../images/map_noroute@2x.png"), url("../images/map_world@2x.png");
+    }
+
+    .trip-header {
+      .start {
+        background-image: url("../images/tripview_a@2x.png");
+        background-size: 15px 21px;
+      }
+
+      .start {
+        background-image: url("../images/tripview_b@2x.png");
+        background-size: 15px 21px;
+      }
+    }
+  }
+}

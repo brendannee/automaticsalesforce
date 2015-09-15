@@ -1,0 +1,66 @@
+.modal {
+  &.modal-create-report .modal-dialog {
+    max-width: 450px;
+  }
+
+  .close {
+    @include noSelection;
+    font-size: 25px;
+    text-shadow: none;
+
+    &:hover {
+      background-color: #2c3032;
+      cursor: pointer;
+      opacity: 0.5;
+      text-decoration: none;
+    }
+  }
+
+  .modal-backdrop {
+    background: $modal-backdrop;
+
+    &.in {
+      opacity: 0.85;
+    }
+  }
+
+  .modal-content {
+    border: 0;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px 0 $box-shadow;
+
+    .modal-title {
+      margin: 10px;
+      text-align: center;
+    }
+  }
+
+  .btn {
+    min-width: 113px;
+  }
+}
+
+.modal-backdrop {
+  background-color: rgba(249, 248, 246, 0.85);
+
+  &.in {
+    opacity: 1;
+  }
+}
+
+@media (min-width: $screen-sm) {
+  .modal {
+    .close {
+      background-color: $grey;
+      border-radius: 12px;
+      color: $white;
+      font-weight: normal;
+      height: 24px;
+      opacity: 0.65;
+      position: absolute;
+      right: -12px;
+      top: -12px;
+      width: 24px;
+    }
+  }
+}

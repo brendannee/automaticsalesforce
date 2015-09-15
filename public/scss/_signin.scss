@@ -1,0 +1,252 @@
+.return-link {
+  display: none;
+  left: 30px;
+  position: absolute;
+  top: 20px;
+}
+
+.signin-header {
+  margin: 0 auto;
+  margin-right: -145px;
+  position: absolute;
+  right: 50%;
+  top: 0;
+  width: 290px;
+  z-index: -1;
+
+  .automatic-logo {
+    margin-top: 0;
+  }
+
+  .salesforce-title {
+    height: 100px;
+    padding-top: 25px;
+  }
+}
+
+.signin-panel {
+  box-shadow: 0 1px 2px 0 $box-shadow;
+  display: block;
+  margin: 70px auto 0;
+  max-width: 600px;
+
+  .border-top {
+    border-top: 1px solid $lightish-grey;
+    padding: 10px 0;
+  }
+
+  .border-both {
+    border-bottom: 1px solid $lightish-grey;
+    border-top: 1px solid $lightish-grey;
+    padding: 10px 0;
+  }
+}
+
+.signin-title {
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 32px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.signin-graphics {
+  height: 46px;
+  margin: 10px auto 30px;
+  position: relative;
+  width: 232px;
+
+  .logo-badge-automatic {
+    background: url("../images/logo_badge_automatic.png") 0 0 no-repeat;
+    height: 39px;
+    left: 0;
+    position: absolute;
+    top: 3px;
+    width: 36px;
+  }
+
+  .icon-integrations-arrows {
+    background: url("../images/icon_integrations_arrows.png") 0 0 no-repeat;
+    height: 46px;
+    left: 59px;
+    position: absolute;
+    top: 0;
+    width: 113px;
+  }
+
+  .logo-badge-salesforce {
+    background: url("../images/logo_badge_salesforce.png") 0 0 no-repeat;
+    height: 40px;
+    left: 195px;
+    position: absolute;
+    top: 3px;
+    width: 40px;
+  }
+}
+
+.signin-description {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.signin-instructions {
+  text-align: center;
+
+  .signin-number {
+    border: $grey 1px solid;
+    border-radius: 14px;
+    display: inline-block;
+    font-size: 14px;
+    height: 28px;
+    line-height: 28px;
+    margin-top: 5px;
+    text-align: center;
+    width: 28px;
+  }
+
+  .signin-text {
+    display: inline-block;
+    font-size: 15px;
+    line-height: 40px;
+    margin-left: 5px;
+  }
+}
+
+.btn.signin-btn {
+  box-shadow: none;
+  display: block;
+  height: 30px;
+  margin: 4px auto 0;
+  width: 204px;
+}
+
+.signin-btn-automatic {
+  background: url("../images/auth_automatic-connect-28-sprite.svg") 0 0 no-repeat;
+  background-size: 205px 64px;
+  display: block;
+  height: 32px;
+  margin: 4px auto 0;
+  text-indent: -9999px;
+  width: 204px;
+
+  &.connected {
+    background-image: url("../images/auth_automatic-connect-success-32.svg");
+    background-size: 205px 32px;
+
+    &:hover,
+    &:active {
+      background-position: 0 0;
+    }
+  }
+
+  &:hover,
+  &:active {
+    background-position: 0 -32px;
+  }
+}
+
+.organization-container {
+  clear: both;
+  padding-top: 10px;
+
+  .organization {
+    display: inline-block;
+    width: 170px;
+  }
+}
+
+.disabled,
+.completed {
+  .signin-number {
+    border-color: $border;
+  }
+
+  .signin-instructions {
+    color: $border;
+  }
+}
+
+.completed .signin-btn {
+  @extend .btn-green;
+}
+
+.signin-learnmore {
+  margin: 50px 0 10px;
+  text-align: center;
+}
+
+@media (min-width: 630px) {
+  .return-link {
+    display: block;
+  }
+
+  .signin-description {
+    margin-bottom: 50px;
+  }
+}
+
+@media (min-width: 580px) {
+  .signin-header {
+    .salesforce-title {
+      height: 100%;
+      position: fixed;
+    }
+  }
+
+  .signin-instructions {
+    display: inline-block;
+    float: left;
+
+    .signin-text {
+      font-size: 18px;
+      margin-left: 10px;
+    }
+  }
+
+  .signin-btn,
+  .signin-btn-automatic {
+    float: right;
+    margin-top: 4px;
+  }
+
+  .signin-panel {
+    margin-bottom: 100px;
+    margin-top: 100px;
+
+    .border-top {
+      padding: 10px 20px;
+    }
+
+    .border-both {
+      padding: 10px 20px;
+    }
+  }
+
+  .organization-container {
+    float: left;
+    width: 300px;
+  }
+
+  .signin-btn-salesforce {
+    margin-top: 31px;
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx) {
+  .signin-graphics {
+    .logo-badge-automatic {
+      background-image: url("../images/logo_badge_automatic@2x.png");
+      background-size: 36px 39px;
+    }
+
+    .icon-integrations-arrows {
+      background-image: url("../images/icon_integrations_arrows@2x.png");
+      background-size: 113px 46px;
+    }
+
+    .logo-badge-salesforce {
+      background-image: url("../images/logo_badge_salesforce@2x.png");
+      background-size: 40px 40px;
+    }
+  }
+}

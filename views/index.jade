@@ -1,0 +1,57 @@
+doctype html
+html(lang="en")
+  head
+    title Automatic Salesforce Integration
+    meta(http-equiv="content-type" content="text/html; charset=utf-8")
+    meta(http-equiv="X-UA-Compatible" content="chrome=1")
+    meta(name="viewport" content="initial-scale=1")
+    meta(name="description" content="Automatic Salesforce Integration")
+    link(rel="stylesheet" type="text/css" href="/css/style.css" media="screen")
+  body
+  
+    .return-link Go to 
+      a.link-blue(href="http://automatic.com") automatic.com
+      
+    .signin-header
+      a.automatic-logo(href="http://automatic.com")
+      .salesforce-title 
+        .plus +
+        span Salesforce
+    
+    .panel.signin-panel
+      .panel-body
+        .row
+          .col-md-8.col-md-offset-2
+            h2.signin-title Expense your Automatic trips with Salesforce
+        .row
+          .col-md-12
+            .signin-graphics
+              .logo-badge-automatic
+              .icon-integrations-arrows
+              .logo-badge-salesforce
+        .row
+          .col-md-10.col-md-offset-1
+            .signin-description Sign in to both your Automatic and Salesforce accounts to allow your trips to be exported to Salesforce.
+        if alert
+          #alert.alert.alert-danger= alert
+        .row.border-top(class=automatic ? 'completed' : '')
+          .col-md-12
+            .signin-instructions 
+              .signin-number 1
+              .signin-text Authorize your Automatic account
+            if automatic
+              a.signin-btn-automatic.connected.disabled Authorized
+            else
+              a.signin-btn-automatic(href="/authorize/") Authorize
+        .row.border-both(class=automatic ? '' : 'disabled')
+          .col-md-12
+            .signin-instructions
+              .signin-number 2
+              .signin-text Authorize your Salesforce account
+            a.btn.btn-blue.signin-btn(href="/authorize-salesforce/", class=automatic ? '' : 'disabled') Authorize
+        .row
+          .col-md-10.col-md-offset-1
+            .signin-learnmore
+              a(href="https://github.com/brendannee/automaticsalesforce") View this project on github
+
+    block scripts

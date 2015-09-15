@@ -1,0 +1,93 @@
+.automatic-logo {
+  background: url("../images/automatic-logo-header.png") 0 18px no-repeat;
+  display: inline-block;
+  float: left;
+  height: 52px;
+  vertical-align: middle;
+  width: 31px;
+}
+
+.salesforce-title {
+  background: $blue;
+  color: $white;
+  display: inline-block;
+  font-size: 20px;
+  height: 70px;
+  line-height: 24px;
+  margin-left: 20px;
+  padding: 22px 0 0 10px;
+  vertical-align: middle;
+  width: 150px;
+
+  .plus {
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    float: left;
+    font-size: 15px;
+    height: 19px;
+    line-height: 19px;
+    margin: 0 9px 0 0;
+    text-align: center;
+    width: 19px;
+  }
+}
+
+.main-header {
+  background: $light-grey;
+  border-bottom: 1px solid $border;
+  height: 70px;
+  max-height: 70px;
+  padding: 0 20px;
+
+  .top-menu {
+    float: right;
+    height: 70px;
+    max-width: 142px;
+    position: relative;
+    text-align: right;
+
+    .user-menu {
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 25px;
+
+      &:hover {
+        color: $dark-grey;
+      }
+
+      .user-name {
+        display: inline-block;
+        padding-right: 6px;
+        max-width: 58px;
+        overflow: hidden;
+      }
+
+      .fa-lg {
+        line-height: 1em;
+        vertical-align: top;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-sm) {
+  .salesforce-title {
+    padding-left: 20px;
+    width: 170px;
+  }
+
+  .main-header {
+    padding: 0 30px;
+  }
+
+  .automatic-logo {
+    width: 119px;
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx) {
+  .automatic-logo {
+    background-image: url("../images/automatic-logo-header@2x.png");
+    background-size: 119px 33px;
+  }
+}
