@@ -15,7 +15,7 @@ nconf
 var app = express();
 
 if(app.get('env') !== 'development') {
-	nconf.set('URL', 'https://salesforce.automatic.com');
+	nconf.set('URL', 'https://automaticsalesforce.herokuapp.com');
 } else {
 	nconf.set('URL', 'http://localhost:3000');
 	app.use(require('connect-livereload')());
